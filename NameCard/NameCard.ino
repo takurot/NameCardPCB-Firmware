@@ -145,7 +145,7 @@ void loop() {
     }else{
       // PWM値を逆方向に徐々に変化させる
       for (int i = 0; i < numGrp; i++) {
-        for (int dutyCycle = 255; dutyCycle >= 0; dutyCycle--) {
+        for (int dutyCycle = 255; dutyCycle >= 0; dutyCycle-=5) {
         // 各ピンのPWM値を設定
           ledcWrite(i, dutyCycle);
           delay(delay_value);
@@ -154,7 +154,7 @@ void loop() {
 
       // PWM値を徐々に変化させる
       for (int i = 0; i < numGrp; i++) {
-        for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle++) {
+        for (int dutyCycle = 0; dutyCycle <= 255; dutyCycle+=5) {
         // 各ピンのPWM値を設定
           ledcWrite(i, dutyCycle);
           delay(delay_value);
